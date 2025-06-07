@@ -34,7 +34,7 @@ Explicación de cada archivo y directorio:
 -   package-lock.json / pnpm-lock.yaml / yarn.lock: Archivo de bloqueo de dependencias, depende del gestor usado (npm, pnpm o yarn).
 -   tsconfig.json: Configuración de TypeScript (aunque uses solo JavaScript, Astro lo incluye por defecto).
 
-# 2. Sitaxis
+# 2. Sintaxis
 
 ## Sintaxis básica de Astro
 
