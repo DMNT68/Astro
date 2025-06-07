@@ -1,0 +1,25 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+
+// Server side only
+const name = 'Andres Salgado';
+const title = 'Home';
+---
+
+<MainLayout title={title}>
+	<h1>{title}</h1>
+	<h1>name: {name}</h1>
+	<p>Momento actual: {new Date().toLocaleTimeString()}</p>
+	<p id="current-moment-real">Momento actual real: {new Date().toLocaleString()}</p>
+
+	<script>
+		const currentMomentRealElement = document.getElementById(
+			'current-moment-real',
+		) as HTMLElement;
+
+		const currentMomentReal = new Date().toLocaleString();
+
+		currentMomentRealElement.innerHTML = `Momento actual real: ${currentMomentReal}`;
+	</script>
+</MainLayout>
