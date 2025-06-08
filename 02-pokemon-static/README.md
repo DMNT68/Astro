@@ -59,6 +59,6 @@ Tailwind CSS es un framework de utilidades para estilos rápidos y consistentes.
 ### Recursos útiles
 
 -   [Documentación oficial de Tailwind CSS](https://tailwindcss.com/docs/installation)
--   [Guía de integración de Tailwind en Astro](https://docs.astro.build/en/guides/integrations-guide/tailwind/)
+-   [Guía de integración de Tailwind en Astro](https://docs.astro.build/en/guides/styling/#tailwind)
 
 Con esta integración, puedes aprovechar todo el poder de Tailwind CSS en tus proyectos Astro de manera sencilla y eficiente.
