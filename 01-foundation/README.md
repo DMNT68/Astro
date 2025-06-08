@@ -1,4 +1,4 @@
-# 🚀 Introducción a Astro
+# SECCION 1: Introducción a Astro 🚀
 
 <br>
 
@@ -373,6 +373,7 @@ import { ClientRouter } from "astro:transitions";
 Consulta la [documentación sobre View Transitions en Astro](https://docs.astro.build/en/guides/view-transitions/) para más detalles.
 
 # 9. Despliege
+
 ## ¿Cómo desplegar un sitio Astro?
 
 Astro genera sitios estáticos listos para producción en la carpeta `dist/` tras ejecutar el comando de build. Puedes desplegar tu sitio en cualquier servicio de hosting estático o plataforma compatible con Node.js.
@@ -399,7 +400,7 @@ Esto crea la carpeta `dist/` con los archivos listos para producción.
 
 1. Sube tu proyecto a un repositorio.
 2. Ve a [netlify.com](https://netlify.com) y conecta tu repositorio.
-3. Usa los comandos de build:  
+3. Usa los comandos de build:
     - Build: `pnpm build`
     - Directorio de publicación: `dist`
 
@@ -407,16 +408,16 @@ Esto crea la carpeta `dist/` con los archivos listos para producción.
 
 1. Instala el adaptador de GitHub Pages:
 
-     ```sh
-     pnpm astro add github
-     ```
+    ```sh
+    pnpm astro add github
+    ```
 
 2. Sigue las instrucciones para configurar el despliegue automático.
 
 #### **Otras opciones**
 
-- **Firebase Hosting**, **Cloudflare Pages**, **Render**, **Surge**, etc.  
-  Consulta la [guía de despliegue de Astro](https://docs.astro.build/es/guides/deploy/) para instrucciones específicas.
+-   **Firebase Hosting**, **Cloudflare Pages**, **Render**, **Surge**, etc.  
+    Consulta la [guía de despliegue de Astro](https://docs.astro.build/es/guides/deploy/) para instrucciones específicas.
 
 ### 3. Adaptadores
 
