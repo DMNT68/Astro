@@ -11,4 +11,5 @@ Este repositorio contiene el código y los recursos desarrollados durante el cur
 
 ## Contenido
 
-1. [Fundamentos de Astro](./01-foundation)
+1. [Introducción a Astro](./01-foundation)
+2. [Rutas Dinámicas y paginación](./02-pokemon-static/README.md)
