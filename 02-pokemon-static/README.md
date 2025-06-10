@@ -65,7 +65,7 @@ Con esta integración, puedes aprovechar todo el poder de Tailwind CSS en tus pr
 
 
 
-# 2. Peticiones HTTP en tiempo de construccion
+# 2. Peticiones HTTP en tiempo de construcción
 Astro permite realizar peticiones HTTP en tiempo de construcción (build time) para obtener datos y generar páginas estáticas dinámicamente. Esto es útil para consumir APIs, cargar datos externos o generar contenido basado en información remota.
 
 ## ¿Cómo hacer peticiones HTTP en Astro?
