@@ -62,3 +62,49 @@ Tailwind CSS es un framework de utilidades para estilos rápidos y consistentes.
 -   [Guía de integración de Tailwind en Astro](https://docs.astro.build/en/guides/styling/#tailwind)
 
 Con esta integración, puedes aprovechar todo el poder de Tailwind CSS en tus proyectos Astro de manera sencilla y eficiente.
+
+
+
+# 2. Peticiones HTTP en tiempo de construccion
+Astro permite realizar peticiones HTTP en tiempo de construcción (build time) para obtener datos y generar páginas estáticas dinámicamente. Esto es útil para consumir APIs, cargar datos externos o generar contenido basado en información remota.
+
+## ¿Cómo hacer peticiones HTTP en Astro?
+
+Puedes usar cualquier librería de HTTP como `fetch`, `axios` o incluso el API nativo de Node.js. Lo más común es usar `fetch`, ya que está disponible globalmente en Astro.
+
+### Ejemplo básico usando `fetch`
+
+Supón que quieres obtener una lista de Pokémon desde una API pública y mostrarla en una página:
+
+```astro
+---
+const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=10');
+const { results: pokemons } = await response.json();
+---
+
+<ul>
+    {pokemons.map(pokemon => (
+        <li>{pokemon.name}</li>
+    ))}
+</ul>
+```
+
+> El código dentro del bloque `---` se ejecuta en el servidor durante la construcción del sitio.
+
+### Ventajas
+
+- **SEO**: Los datos ya están presentes en el HTML generado.
+- **Rendimiento**: No hay llamadas a la API en el cliente.
+- **Flexibilidad**: Puedes combinar datos de múltiples fuentes.
+
+### Consideraciones
+
+- Los datos se obtienen solo en el momento de la construcción. Si la API cambia, debes volver a construir el sitio para ver los cambios.
+- Para datos que cambian frecuentemente, considera usar rutas dinámicas o endpoints de servidor.
+
+### Recursos
+
+- [Documentación oficial: Fetching Data](https://docs.astro.build/en/guides/data-fetching/)
+- [Ejemplo de integración con APIs](https://docs.astro.build/en/guides/integrations-guide/)
+
+Con este enfoque, puedes crear sitios estáticos potentes y dinámicos usando Astro y cualquier fuente de datos externa.
