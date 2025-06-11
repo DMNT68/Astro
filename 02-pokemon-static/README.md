@@ -108,3 +108,56 @@ const { results: pokemons } = await response.json();
 - [Ejemplo de integración con APIs](https://docs.astro.build/en/guides/integrations-guide/)
 
 Con este enfoque, puedes crear sitios estáticos potentes y dinámicos usando Astro y cualquier fuente de datos externa.
+
+
+# 3. Páginas Dinámicas y Argumentos por URL
+
+Astro permite crear páginas dinámicas utilizando archivos con nombres entre corchetes en la carpeta `src/pages`. Esto es útil para generar rutas basadas en parámetros, como detalles de un Pokémon por su nombre o ID.
+
+## ¿Cómo funcionan las páginas dinámicas?
+
+Si creas un archivo como `src/pages/pokemon/[id].astro`, Astro generará una página para cada valor de `id` que definas en el proceso de construcción.
+
+### Ejemplo: Página dinámica por ID
+
+Supón que quieres mostrar información de un Pokémon según su ID en la URL (`/pokemon/1`, `/pokemon/2`, etc.):
+
+```astro
+---
+// src/pages/pokemon/[id].astro
+const { id } = Astro.params;
+const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+const pokemon = await response.json();
+---
+
+<h1>{pokemon.name}</h1>
+<img src={pokemon.sprites.front_default} alt={pokemon.name} />
+```
+
+- `Astro.params.id` contiene el valor dinámico de la URL.
+
+### Generación de rutas dinámicas
+
+Para que Astro genere páginas para cada Pokémon, debes exportar una función `getStaticPaths`:
+
+```astro
+---
+export async function getStaticPaths() {
+    const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=10');
+    const { results } = await response.json();
+
+    return results.map((pokemon, index) => ({
+        params: { id: (index + 1).toString() }
+    }));
+}
+---
+```
+
+Esto le indica a Astro qué rutas debe construir en tiempo de build.
+
+### Recursos útiles
+
+- [Documentación oficial: Dynamic Routes](https://docs.astro.build/en/core-concepts/routing/#dynamic-routes)
+- [Uso de parámetros en rutas](https://docs.astro.build/en/core-concepts/routing/#route-parameters)
+
+Con las páginas dinámicas y los argumentos por URL, puedes crear sitios con rutas personalizadas y contenido generado a partir de datos externos.

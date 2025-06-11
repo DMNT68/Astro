@@ -8,7 +8,7 @@ const id = url.split('/').at(-2);
 const urlImg = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
 ---
 
-<div class="rounded border flex flex-col items-center">
+<a href={`/pokemons/${name}`} class="rounded border flex flex-col items-center">
 	<img src={urlImg} alt={name} />
 	<span class="capitalize text-lg">{name}</span>
-</div>
+</a>
