@@ -4,7 +4,7 @@ import MainLayout from '../layout/MainLayout.astro';
 import type { PokemonListResponse } from '../interfaces/pokemon-list-response';
 import PokemonCard from '../components/pokemons/PokemonCard.astro';
 
-const resp = await fetch('https://pokeapi.co/api/v2/pokemon');
+const resp = await fetch('https://pokeapi.co/api/v2/pokemon?limit=151');
 const data = (await resp.json()) as PokemonListResponse;
 
 const title = 'Pokémon Static | Home';
