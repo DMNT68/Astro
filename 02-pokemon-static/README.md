@@ -358,7 +358,6 @@ const { data: pokemons, currentPage, totalPages } = Astro.props;
 
 ### Recursos útiles
 
-- [Documentación oficial: Pagination](https://docs.astro.build/en/guides/pagination/)
-- [Ejemplo de paginate()](https://docs.astro.build/en/guides/pagination/#paginate)
+- [Documentación oficial: Pagination](https://docs.astro.build/en/guides/routing/#pagination)
 
 Con `paginate()`, puedes crear fácilmente listados paginados y optimizados para SEO en tus proyectos Astro.
