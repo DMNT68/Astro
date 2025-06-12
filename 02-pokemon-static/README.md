@@ -161,3 +161,107 @@ Esto le indica a Astro qué rutas debe construir en tiempo de build.
 - [Uso de parámetros en rutas](https://docs.astro.build/en/core-concepts/routing/#route-parameters)
 
 Con las páginas dinámicas y los argumentos por URL, puedes crear sitios con rutas personalizadas y contenido generado a partir de datos externos.
+
+# 4. Estilo condicional
+Astro permite aplicar estilos condicionales a los elementos de tus componentes utilizando expresiones de JavaScript para modificar las clases o estilos en función de datos o estados.
+
+## Ejemplo: Cambiar clase según condición
+
+Supón que quieres resaltar un Pokémon si es de tipo "fire":
+
+```astro
+---
+const tipo = "fire";
+const esFuego = tipo === "fire";
+---
+
+<div class={esFuego ? "bg-red-500 text-white" : "bg-gray-200"}>
+    Pokémon tipo {tipo}
+</div>
+```
+
+En este ejemplo, si el tipo es "fire", el `div` tendrá un fondo rojo; de lo contrario, será gris.
+
+## Ejemplo: Estilo en línea condicional
+
+También puedes modificar estilos en línea:
+
+```astro
+---
+const activo = true;
+---
+
+<button style={`opacity: ${activo ? 1 : 0.5};`}>
+    Botón {activo ? "Activo" : "Inactivo"}
+</button>
+```
+
+## Uso con Tailwind CSS
+
+Si usas Tailwind, puedes combinar clases condicionalmente:
+
+```astro
+---
+const seleccionado = true;
+---
+
+<button class={`px-4 py-2 rounded ${seleccionado ? "bg-blue-600" : "bg-gray-400"}`}>
+    {seleccionado ? "Seleccionado" : "No seleccionado"}
+</button>
+```
+
+## Recursos
+
+- [Documentación oficial: Styling](https://docs.astro.build/en/guides/styling/)
+- [Guía de clases condicionales en Astro](https://docs.astro.build/en/guides/styling/#conditional-classes)
+
+Esto te permite crear interfaces dinámicas y responsivas fácilmente en Astro.
+
+## Uso de `class:list` en Astro
+
+Astro ofrece la directiva especial `class:list` para gestionar clases condicionales de manera más limpia y legible en tus componentes. Esta directiva permite pasar un objeto donde las claves son los nombres de las clases y los valores son expresiones booleanas que determinan si la clase se aplica o no.
+
+## Ejemplo básico
+
+Supón que quieres aplicar la clase `activo` solo si una variable es verdadera:
+
+```astro
+---
+const activo = true;
+---
+
+<button class:list={{ 'activo': activo, 'inactivo': !activo }}>
+    {activo ? "Activo" : "Inactivo"}
+</button>
+```
+
+En este ejemplo, el botón tendrá la clase `activo` si la variable es `true`, o `inactivo` si es `false`.
+
+## Ejemplo con Tailwind CSS
+
+Puedes combinar `class:list` con utilidades de Tailwind para aplicar estilos condicionales:
+
+```astro
+---
+const esFuego = true;
+---
+
+<div class:list={{
+    'bg-red-500 text-white': esFuego,
+    'bg-gray-200': !esFuego
+}}>
+    Pokémon tipo {esFuego ? "Fuego" : "Otro"}
+</div>
+```
+
+## Ventajas de `class:list`
+
+- Código más limpio y fácil de mantener.
+- Evita concatenaciones de strings y expresiones complejas en el atributo `class`.
+- Permite combinar múltiples condiciones de forma declarativa.
+
+## Recursos
+
+- [Documentación oficial: class:list](https://docs.astro.build/en/guides/styling/#classlist)
+
+Utiliza `class:list` para mejorar la legibilidad y flexibilidad de tus componentes Astro al manejar clases condicionales.
