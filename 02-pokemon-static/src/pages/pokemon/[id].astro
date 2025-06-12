@@ -1,7 +1,7 @@
 ---
 import type { GetStaticPaths } from 'astro';
-import MainLayout from '../../layout/MainLayout.astro';
 import PokemonCard from '../../components/pokemons/PokemonCard.astro';
+import MainLayout from '../../layout/MainLayout.astro';
 import type { PokemonListResponse } from '../../interfaces/pokemon-list-response';
 
 export const getStaticPaths = (async () => {
@@ -9,19 +9,18 @@ export const getStaticPaths = (async () => {
 	const { results } = (await resp.json()) as PokemonListResponse;
 
 	return results.map(({ name, url }) => ({
-		params: { name },
+		params: { id: url.split('/').at(-2) },
 		props: { name, url },
 	}));
 }) satisfies GetStaticPaths;
 
-const { name } = Astro.params;
-const { url } = Astro.props;
+const { id } = Astro.params;
+const { name, url } = Astro.props;
 
-const id = url.split('/').at(-2);
 const audioSrc = `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${id}.ogg`;
 ---
 
-<MainLayout title={name}>
+<MainLayout title="Hola mundo">
 	<section class="mt-10 mx-10 flex flex-col justify-center items-center">
 		<div>
 			<a class="hover:underline text-blue-500" href="/">Regresar</a>
