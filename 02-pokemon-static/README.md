@@ -309,3 +309,56 @@ Asegúrate de usar el mismo valor de `transition:name` en ambos componentes (lis
 - [Ejemplo de transición de nombre](https://docs.astro.build/en/guides/view-transitions/#named-transitions)
 
 Las name transitions permiten crear experiencias de usuario más fluidas y atractivas en tus aplicaciones Astro.
+
+# 6. Paginación Estática
+Astro facilita la creación de paginación estática usando la función utilitaria `paginate()` del paquete `astro:pagination`. Esto permite dividir grandes conjuntos de datos en páginas individuales generadas en tiempo de construcción.
+
+## ¿Cómo funciona la paginación con `paginate()`?
+
+La función `paginate()` toma un array de elementos y los distribuye en páginas, devolviendo los datos y la información de navegación para cada página.
+
+### Ejemplo básico de paginación
+
+Supón que tienes una lista de Pokémon y quieres mostrar 5 por página:
+
+```astro
+---
+import { paginate } from 'astro:pagination';
+
+export async function getStaticPaths() {
+    const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=50');
+    const { results: pokemons } = await response.json();
+
+    return paginate(pokemons, { pageSize: 5 });
+}
+
+const { data: pokemons, currentPage, totalPages } = Astro.props;
+---
+
+<ul>
+    {pokemons.map(pokemon => (
+        <li>{pokemon.name}</li>
+    ))}
+</ul>
+
+<nav>
+    {Array.from({ length: totalPages }).map((_, i) => (
+        <a
+            href={i === 0 ? '/pokemons/' : `/pokemons/${i + 1}/`}
+            aria-current={currentPage === i + 1 ? 'page' : undefined}
+        >
+            {i + 1}
+        </a>
+    ))}
+</nav>
+```
+
+- `paginate()` divide el array en páginas y genera rutas estáticas para cada una.
+- En el template, puedes mostrar los elementos de la página actual y los enlaces de navegación.
+
+### Recursos útiles
+
+- [Documentación oficial: Pagination](https://docs.astro.build/en/guides/pagination/)
+- [Ejemplo de paginate()](https://docs.astro.build/en/guides/pagination/#paginate)
+
+Con `paginate()`, puedes crear fácilmente listados paginados y optimizados para SEO en tus proyectos Astro.
