@@ -361,3 +361,41 @@ const { data: pokemons, currentPage, totalPages } = Astro.props;
 - [Documentación oficial: Pagination](https://docs.astro.build/en/guides/routing/#pagination)
 
 Con `paginate()`, puedes crear fácilmente listados paginados y optimizados para SEO en tus proyectos Astro.
+
+# SECCION 3: Dinamismo a nuestro sitio estático
+
+# 1. Indicadores de ruta activa
+Astro proporciona la propiedad `Astro.url.pathname` para obtener la ruta actual dentro de tus componentes. Esto es útil para resaltar enlaces activos en la navegación o mostrar indicadores de ruta activa.
+
+## Ejemplo: Resaltar enlace activo en la navegación
+
+Supón que tienes una barra de navegación y quieres aplicar una clase especial al enlace de la página actual:
+
+```astro
+---
+const currentPath = Astro.url.pathname;
+---
+
+<nav>
+    <a
+        href="/"
+        class:list={{ 'text-blue-600 font-bold': currentPath === '/' }}
+    >
+        Inicio
+    </a>
+    <a
+        href="/pokemons/"
+        class:list={{ 'text-blue-600 font-bold': currentPath.startsWith('/pokemons') }}
+    >
+        Pokémons
+    </a>
+</nav>
+```
+
+En este ejemplo, el enlace correspondiente a la ruta actual recibirá estilos adicionales, permitiendo al usuario identificar en qué sección se encuentra.
+
+## Recursos
+
+- [Astro.url en la documentación oficial](https://docs.astro.build/en/reference/api-reference/#astrourl)
+
+Utiliza `Astro.url.pathname` para crear menús de navegación dinámicos y mejorar la experiencia de usuario en tus sitios Astro.
