@@ -8,6 +8,7 @@ import type { PokemonListResponse } from '@interfaces/pokemon-list-response';
 // import PokemonCard from 'src/components/pokemons/PokemonCard.astro';
 //Path alias
 import PokemonCard from '@components/pokemons/PokemonCard.astro';
+import Title from '@components/shared/Title.astro';
 
 export const getStaticPaths = (async () => {
 	const resp = await fetch('https://pokeapi.co/api/v2/pokemon?limit=151');
@@ -29,8 +30,8 @@ const imageSrc = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprit
 <MainLayout title={name} description=`Informacion sobre el pokemon ${name}` image={imageSrc}>
 	<section class="mt-10 mx-10 flex flex-col justify-center items-center">
 		<div>
-			<a class="hover:underline text-blue-500" href="/">Regresar</a>
-			<h1 class="text-3xl capitalize">{name}</h1>
+			<button onclick="history.back()" class="text-blue-500">Regresar</button>
+			<Title>{name}</Title>
 		</div>
 
 		<PokemonCard name={name} url={url} isBig />
