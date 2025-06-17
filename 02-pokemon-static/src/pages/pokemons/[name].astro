@@ -34,8 +34,8 @@ const imageSrc = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprit
 			<div class="flex flex-row items-center">
 				<Title>{name}</Title>
 				<button id="btn-favorite" class="ml-5" data-name={name} data-id={id}>
-					<Icon name="heart-outline" size={50} />
-					<Icon class="hidden" name="heart-fill" size={50} />
+					<Icon data-outline name="heart-outline" size={50} />
+					<Icon data-fill class="hidden" name="heart-fill" size={50} />
 				</button>
 			</div>
 		</div>
@@ -54,17 +54,45 @@ const imageSrc = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprit
 		id: number;
 	}
 
-	document.addEventListener('astro:page-load', () => {
+	document.addEventListener('astro:page-load', () => handlePageLoad());
+
+	const handlePageLoad = () => {
+		let favoritesPokemon: FavoritePokemon[] = JSON.parse(
+			localStorage.getItem('favoritesPokemon') ?? '[]',
+		);
+
 		const btnFavorite = document.querySelector('#btn-favorite') as HTMLButtonElement;
-		const name = btnFavorite.dataset.name;
-		const id = btnFavorite.dataset.id;
 
 		if (!btnFavorite) return;
 
+		const name = btnFavorite.dataset.name ?? '';
+		const id = btnFavorite.dataset.id ?? '';
+
+		const heartOutline = btnFavorite.querySelector('[data-outline]') as HTMLElement;
+		const heartFill = btnFavorite.querySelector('[data-fill]') as HTMLElement;
+
+		const isFavorite = favoritesPokemon.some((fav) => fav.name === name);
+		if (isFavorite) {
+			heartOutline.classList.add('hidden');
+			heartFill.classList.remove('hidden');
+		}
+
+		const toggleFavorite = () => {
+			if (isFavorite) {
+				favoritesPokemon = favoritesPokemon.filter((fav) => fav.name !== name);
+			} else {
+				if (name && id) favoritesPokemon.push({ name, id: +id });
+			}
+
+			localStorage.setItem('favoritesPokemon', JSON.stringify(favoritesPokemon));
+		};
+
 		btnFavorite.addEventListener('click', () => {
-			console.log(name, id);
+			heartOutline.classList.toggle('hidden');
+			heartFill.classList.toggle('hidden');
+			toggleFavorite();
 		});
-	});
+	};
 </script>
 
 <style>

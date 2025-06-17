@@ -518,3 +518,47 @@ Astro permite usar TypeScript en los scripts agregando el atributo `lang="ts"`:
 -   [Uso de TypeScript en Astro](https://docs.astro.build/en/guides/typescript/)
 
 Con JavaScript o TypeScript puro puedes añadir interactividad ligera y personalizada a tus proyectos Astro, manteniendo el rendimiento y la simplicidad.
+
+# 4. Ciclo de vida del ViewTransition
+
+Astro permite aprovechar el ciclo de vida de las transiciones de vista (View Transition) para ejecutar lógica personalizada en diferentes etapas de la animación entre páginas. Los eventos principales que puedes manejar son:
+
+-   **astro:before-preparation**: Se dispara antes de preparar la transición, ideal para tareas previas como guardar estado.
+-   **astro:after-preparation**: Ocurre después de preparar la transición, útil para ajustes antes del cambio de vista.
+-   **astro:before-swap**: Justo antes de intercambiar el contenido de la vista, puedes realizar tareas como mostrar loaders.
+-   **astro:after-swap**: Después de intercambiar el contenido, puedes iniciar animaciones o cargar datos adicionales.
+-   **astro:page-load**: Se dispara cuando la nueva página ha terminado de cargar, útil para inicializar scripts o componentes.
+
+## Ejemplo de uso
+
+Puedes escuchar estos eventos globalmente en tu proyecto Astro:
+
+```astro
+<script>
+    document.addEventListener('astro:before-preparation', () => {
+        console.log('Antes de preparar la transición');
+    });
+
+    document.addEventListener('astro:after-preparation', () => {
+        console.log('Después de preparar la transición');
+    });
+
+    document.addEventListener('astro:before-swap', () => {
+        console.log('Antes de intercambiar la vista');
+    });
+
+    document.addEventListener('astro:after-swap', () => {
+        console.log('Después de intercambiar la vista');
+    });
+
+    document.addEventListener('astro:page-load', () => {
+        console.log('La nueva página ha cargado');
+    });
+</script>
+```
+
+## Recursos útiles
+
+-   [Documentación oficial: View Transitions Lifecycle](https://docs.astro.build/en/guides/view-transitions/#lifecycle-events)
+
+Aprovechar estos eventos te permite coordinar animaciones, cargar datos o ejecutar lógica personalizada en cada etapa de la transición de vistas en Astro.
