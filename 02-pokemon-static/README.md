@@ -63,9 +63,8 @@ Tailwind CSS es un framework de utilidades para estilos rápidos y consistentes.
 
 Con esta integración, puedes aprovechar todo el poder de Tailwind CSS en tus proyectos Astro de manera sencilla y eficiente.
 
-
-
 # 2. Peticiones HTTP en tiempo de construcción
+
 Astro permite realizar peticiones HTTP en tiempo de construcción (build time) para obtener datos y generar páginas estáticas dinámicamente. Esto es útil para consumir APIs, cargar datos externos o generar contenido basado en información remota.
 
 ## ¿Cómo hacer peticiones HTTP en Astro?
@@ -93,22 +92,21 @@ const { results: pokemons } = await response.json();
 
 ### Ventajas
 
-- **SEO**: Los datos ya están presentes en el HTML generado.
-- **Rendimiento**: No hay llamadas a la API en el cliente.
-- **Flexibilidad**: Puedes combinar datos de múltiples fuentes.
+-   **SEO**: Los datos ya están presentes en el HTML generado.
+-   **Rendimiento**: No hay llamadas a la API en el cliente.
+-   **Flexibilidad**: Puedes combinar datos de múltiples fuentes.
 
 ### Consideraciones
 
-- Los datos se obtienen solo en el momento de la construcción. Si la API cambia, debes volver a construir el sitio para ver los cambios.
-- Para datos que cambian frecuentemente, considera usar rutas dinámicas o endpoints de servidor.
+-   Los datos se obtienen solo en el momento de la construcción. Si la API cambia, debes volver a construir el sitio para ver los cambios.
+-   Para datos que cambian frecuentemente, considera usar rutas dinámicas o endpoints de servidor.
 
 ### Recursos
 
-- [Documentación oficial: Fetching Data](https://docs.astro.build/en/guides/data-fetching/)
-- [Ejemplo de integración con APIs](https://docs.astro.build/en/guides/integrations-guide/)
+-   [Documentación oficial: Fetching Data](https://docs.astro.build/en/guides/data-fetching/)
+-   [Ejemplo de integración con APIs](https://docs.astro.build/en/guides/integrations-guide/)
 
 Con este enfoque, puedes crear sitios estáticos potentes y dinámicos usando Astro y cualquier fuente de datos externa.
-
 
 # 3. Páginas Dinámicas y Argumentos por URL
 
@@ -134,7 +132,7 @@ const pokemon = await response.json();
 <img src={pokemon.sprites.front_default} alt={pokemon.name} />
 ```
 
-- `Astro.params.id` contiene el valor dinámico de la URL.
+-   `Astro.params.id` contiene el valor dinámico de la URL.
 
 ### Generación de rutas dinámicas
 
@@ -157,12 +155,13 @@ Esto le indica a Astro qué rutas debe construir en tiempo de build.
 
 ### Recursos útiles
 
-- [Documentación oficial: Dynamic Routes](https://docs.astro.build/en/core-concepts/routing/#dynamic-routes)
-- [Uso de parámetros en rutas](https://docs.astro.build/en/core-concepts/routing/#route-parameters)
+-   [Documentación oficial: Dynamic Routes](https://docs.astro.build/en/core-concepts/routing/#dynamic-routes)
+-   [Uso de parámetros en rutas](https://docs.astro.build/en/core-concepts/routing/#route-parameters)
 
 Con las páginas dinámicas y los argumentos por URL, puedes crear sitios con rutas personalizadas y contenido generado a partir de datos externos.
 
 # 4. Estilo condicional
+
 Astro permite aplicar estilos condicionales a los elementos de tus componentes utilizando expresiones de JavaScript para modificar las clases o estilos en función de datos o estados.
 
 ## Ejemplo: Cambiar clase según condición
@@ -212,8 +211,8 @@ const seleccionado = true;
 
 ## Recursos
 
-- [Documentación oficial: Styling](https://docs.astro.build/en/guides/styling/)
-- [Guía de clases condicionales en Astro](https://docs.astro.build/en/guides/styling/#conditional-classes)
+-   [Documentación oficial: Styling](https://docs.astro.build/en/guides/styling/)
+-   [Guía de clases condicionales en Astro](https://docs.astro.build/en/guides/styling/#conditional-classes)
 
 Esto te permite crear interfaces dinámicas y responsivas fácilmente en Astro.
 
@@ -256,17 +255,18 @@ const esFuego = true;
 
 ## Ventajas de `class:list`
 
-- Código más limpio y fácil de mantener.
-- Evita concatenaciones de strings y expresiones complejas en el atributo `class`.
-- Permite combinar múltiples condiciones de forma declarativa.
+-   Código más limpio y fácil de mantener.
+-   Evita concatenaciones de strings y expresiones complejas en el atributo `class`.
+-   Permite combinar múltiples condiciones de forma declarativa.
 
 ## Recursos
 
-- [Documentación oficial: class:list](https://docs.astro.build/en/guides/styling/#classlist)
+-   [Documentación oficial: class:list](https://docs.astro.build/en/guides/styling/#classlist)
 
 Utiliza `class:list` para mejorar la legibilidad y flexibilidad de tus componentes Astro al manejar clases condicionales.
 
 # 5. View transitions + Name Transitions
+
 Astro soporta transiciones de nombre (`name transitions`) para animar elementos específicos entre rutas, utilizando el atributo `transition:name`. Esto permite crear animaciones suaves y personalizadas al navegar entre páginas, especialmente útil para listas o detalles de elementos como imágenes de Pokémon.
 
 ## ¿Cómo usar `transition:name`?
@@ -305,12 +305,13 @@ Asegúrate de usar el mismo valor de `transition:name` en ambos componentes (lis
 
 ## Recursos
 
-- [Documentación oficial: View Transitions](https://docs.astro.build/en/guides/view-transitions/)
-- [Ejemplo de transición de nombre](https://docs.astro.build/en/guides/view-transitions/#named-transitions)
+-   [Documentación oficial: View Transitions](https://docs.astro.build/en/guides/view-transitions/)
+-   [Ejemplo de transición de nombre](https://docs.astro.build/en/guides/view-transitions/#named-transitions)
 
 Las name transitions permiten crear experiencias de usuario más fluidas y atractivas en tus aplicaciones Astro.
 
 # 6. Paginación Estática
+
 Astro facilita la creación de paginación estática usando la función utilitaria `paginate()` del paquete `astro:pagination`. Esto permite dividir grandes conjuntos de datos en páginas individuales generadas en tiempo de construcción.
 
 ## ¿Cómo funciona la paginación con `paginate()`?
@@ -353,18 +354,19 @@ const { data: pokemons, currentPage, totalPages } = Astro.props;
 </nav>
 ```
 
-- `paginate()` divide el array en páginas y genera rutas estáticas para cada una.
-- En el template, puedes mostrar los elementos de la página actual y los enlaces de navegación.
+-   `paginate()` divide el array en páginas y genera rutas estáticas para cada una.
+-   En el template, puedes mostrar los elementos de la página actual y los enlaces de navegación.
 
 ### Recursos útiles
 
-- [Documentación oficial: Pagination](https://docs.astro.build/en/guides/routing/#pagination)
+-   [Documentación oficial: Pagination](https://docs.astro.build/en/guides/routing/#pagination)
 
 Con `paginate()`, puedes crear fácilmente listados paginados y optimizados para SEO en tus proyectos Astro.
 
 # SECCION 3: Dinamismo a nuestro sitio estático
 
 # 1. Indicadores de ruta activa
+
 Astro proporciona la propiedad `Astro.url.pathname` para obtener la ruta actual dentro de tus componentes. Esto es útil para resaltar enlaces activos en la navegación o mostrar indicadores de ruta activa.
 
 ## Ejemplo: Resaltar enlace activo en la navegación
@@ -396,6 +398,51 @@ En este ejemplo, el enlace correspondiente a la ruta actual recibirá estilos ad
 
 ## Recursos
 
-- [Astro.url en la documentación oficial](https://docs.astro.build/en/reference/api-reference/#astrourl)
+-   [Astro.url en la documentación oficial](https://docs.astro.build/en/reference/api-reference/#astrourl)
 
 Utiliza `Astro.url.pathname` para crear menús de navegación dinámicos y mejorar la experiencia de usuario en tus sitios Astro.
+
+# 2. Uso de Astro Icons
+
+Astro Icons es una integración que permite utilizar fácilmente miles de iconos SVG de diferentes bibliotecas populares directamente en tus componentes Astro, sin necesidad de instalar paquetes adicionales de iconos.
+
+## Instalación de Astro Icons
+
+Para agregar Astro Icons a tu proyecto, ejecuta:
+
+```bash
+npx astro add astro-icon
+```
+
+Esto instalará la integración y configurará tu proyecto automáticamente.
+
+## Uso básico
+
+Una vez instalada la integración, puedes importar y usar iconos en tus archivos `.astro` de la siguiente manera:
+
+```astro
+---
+import { Icon } from 'astro-icon';
+---
+
+<Icon name="mdi:pokeball" size="2em" />
+```
+
+-   El atributo `name` define el icono a mostrar, usando el prefijo de la colección (por ejemplo, `mdi` para Material Design Icons).
+-   El atributo `size` permite ajustar el tamaño del icono.
+
+## Personalización
+
+Puedes personalizar el color, tamaño y otros atributos SVG directamente en el componente:
+
+```astro
+<Icon name="mdi:fire" size="32" color="red" />
+```
+
+## Recursos útiles
+
+-   [Astro Icon documentación](https://www.astroicon.dev/getting-started/)
+-   [Colecciones de iconos soportadas](https://icones.js.org/)
+-   [Iconify](https://icon-sets.iconify.design/)
+
+Astro Icons facilita la inclusión de iconografía moderna y personalizable en tus proyectos Astro, mejorando la apariencia visual de tus interfaces.
