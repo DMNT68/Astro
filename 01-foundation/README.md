@@ -1,5 +1,11 @@
 # SECCION 1: Introducción a Astro 🚀
 
+## ¿Qué es Astro?
+
+Astro es un framework moderno para construir sitios web rápidos y eficientes. Permite crear sitios estáticos y aplicaciones web utilizando componentes de diferentes frameworks (React, Vue, Svelte, Solid, etc.), pero genera HTML estático por defecto, lo que mejora el rendimiento y la velocidad de carga. Astro separa la lógica del cliente y del servidor, enviando solo el JavaScript necesario al navegador. Es ideal para blogs, portafolios, documentación y cualquier sitio donde el rendimiento sea una prioridad.
+
+Consulta la [introducción oficial de Astro](https://docs.astro.build/es/introducción/) para más información.
+
 <br>
 
 # 1. Estructura de un proyecto de Astro

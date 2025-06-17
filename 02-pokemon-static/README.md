@@ -1,5 +1,7 @@
 # SECCION 2: Rutas Dinámicas y paginación
 
+<br>
+
 # 1. Intregarciones
 
 Astro permite integrar fácilmente frameworks y herramientas populares mediante su sistema de integraciones. Algunas de las integraciones más comunes incluyen:
@@ -363,7 +365,12 @@ const { data: pokemons, currentPage, totalPages } = Astro.props;
 
 Con `paginate()`, puedes crear fácilmente listados paginados y optimizados para SEO en tus proyectos Astro.
 
+<br>
+<br>
+
 # SECCION 3: Dinamismo a nuestro sitio estático
+
+<br>
 
 # 1. Indicadores de ruta activa
 
