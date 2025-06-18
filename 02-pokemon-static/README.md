@@ -607,7 +607,7 @@ SolidJS es un framework UI reactivo y eficiente que puedes integrar fácilmente 
 Ejecuta el siguiente comando en tu proyecto Astro:
 
 ```bash
-npx astro add solid
+pnpm astro add solid
 ```
 
 Esto instalará la integración y configurará tu proyecto automáticamente.
