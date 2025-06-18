@@ -649,3 +649,52 @@ Esto instalará la integración y configurará tu proyecto automáticamente.
 -   [Integración de Solid en Astro](https://docs.astro.build/en/guides/integrations-guide/solid/)
 
 Con SolidJS puedes crear islas interactivas eficientes y reactivas dentro de tus proyectos Astro.
+
+# 7. Client Directives en Astro
+
+Las Client Directives son atributos especiales que puedes agregar a los componentes de frameworks (React, Vue, Svelte, Solid, etc.) en Astro para controlar cuándo y cómo se hidratan en el cliente. Esto permite optimizar el rendimiento y enviar solo el JavaScript necesario.
+
+## Principales Client Directives
+
+-   **`client:load`**: Hidrata el componente tan pronto como la página termina de cargar.
+-   **`client:idle`**: Hidrata el componente cuando el navegador está inactivo (idle), ideal para mejorar el rendimiento inicial.
+-   **`client:visible`**: Hidrata el componente solo cuando entra en el viewport (es visible para el usuario).
+-   **`client:media="(media-query)"`**: Hidrata el componente solo si la media query se cumple (por ejemplo, solo en móviles).
+-   **`client:only="framework"`**: Solo renderiza el componente en el cliente, nunca en el servidor.
+
+## Ejemplo de uso
+
+```astro
+---
+import Contador from '../components/Contador.jsx';
+---
+
+<!-- Hidrata al cargar la página -->
+<Contador client:load />
+
+<!-- Hidrata cuando el navegador está inactivo -->
+<Contador client:idle />
+
+<!-- Hidrata cuando el componente es visible -->
+<Contador client:visible />
+
+<!-- Hidrata solo en pantallas pequeñas -->
+<Contador client:media="(max-width: 600px)" />
+
+<!-- Solo renderiza en el cliente usando React -->
+<Contador client:only="react" />
+```
+
+## Cuándo usar cada directiva
+
+-   Usa `client:load` para componentes que deben estar interactivos inmediatamente.
+-   Usa `client:idle` o `client:visible` para componentes secundarios o que no requieren interacción inmediata.
+-   Usa `client:media` para cargar componentes solo en ciertos dispositivos.
+-   Usa `client:only` para componentes que dependen de APIs del navegador o que no pueden renderizarse en el servidor.
+
+## Recursos útiles
+
+-   [Documentación oficial: Client Directives](https://docs.astro.build/en/reference/directives-reference/#client-directives)
+-   [Guía de componentes interactivos](https://docs.astro.build/en/guides/integrations-guide/)
+
+Las Client Directives te permiten controlar de forma granular la interactividad y el rendimiento de tus aplicaciones Astro.
