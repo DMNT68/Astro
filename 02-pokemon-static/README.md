@@ -562,3 +562,90 @@ Puedes escuchar estos eventos globalmente en tu proyecto Astro:
 -   [Documentación oficial: View Transitions Lifecycle](https://docs.astro.build/en/guides/view-transitions/#lifecycle-events)
 
 Aprovechar estos eventos te permite coordinar animaciones, cargar datos o ejecutar lógica personalizada en cada etapa de la transición de vistas en Astro.
+
+# 5. Astro Islands
+
+Astro Islands es una arquitectura que permite agregar interactividad solo donde se necesita, sin convertir toda la página en una SPA. En Astro, una "isla" es un componente interactivo (por ejemplo, de React, Vue, Svelte o SolidJS) que se hidrata en el cliente, mientras el resto del sitio permanece estático y rápido.
+
+## ¿Cómo funcionan las Astro Islands?
+
+-   El HTML se genera en el servidor.
+-   Solo los componentes marcados para hidratarse (islas) reciben JavaScript en el cliente.
+-   Puedes usar directivas como `client:load`, `client:idle`, `client:visible` o `client:only` para controlar cuándo y cómo se hidrata cada isla.
+
+### Ejemplo básico
+
+```astro
+---
+import Contador from '../components/Contador.jsx';
+---
+
+<Contador client:load />
+```
+
+En este ejemplo, el componente `Contador` se hidrata en el cliente cuando la página carga, mientras el resto del HTML permanece estático.
+
+### Ventajas
+
+-   Mejor rendimiento y SEO.
+-   Menos JavaScript enviado al cliente.
+-   Permite mezclar múltiples frameworks en un mismo proyecto.
+
+## Recursos útiles
+
+-   [Documentación oficial: Islands Architecture](https://docs.astro.build/en/core-concepts/islands/)
+-   [Guía de componentes interactivos](https://docs.astro.build/en/guides/integrations-guide/)
+
+---
+
+# 6. Instalación y uso de SolidJS en Astro
+
+SolidJS es un framework UI reactivo y eficiente que puedes integrar fácilmente en Astro para crear componentes interactivos.
+
+## Instalación de SolidJS
+
+Ejecuta el siguiente comando en tu proyecto Astro:
+
+```bash
+npx astro add solid
+```
+
+Esto instalará la integración y configurará tu proyecto automáticamente.
+
+## Uso básico de SolidJS en Astro
+
+1. **Crea un componente SolidJS**  
+    Por ejemplo, en `src/components/ContadorSolid.tsx`:
+
+     ```tsx
+     import { createSignal } from 'solid-js';
+
+     export default function ContadorSolid() {
+          const [count, setCount] = createSignal(0);
+          return (
+                <button onClick={() => setCount(count() + 1)}>
+                     Contador: {count()}
+                </button>
+          );
+     }
+     ```
+
+2. **Usa el componente en una página Astro**  
+    Por ejemplo, en un archivo `.astro`:
+
+     ```astro
+     ---
+     import ContadorSolid from '../components/ContadorSolid';
+     ---
+
+     <ContadorSolid client:load />
+     ```
+
+-   Usa directivas como `client:load`, `client:idle`, etc., para controlar la hidratación del componente.
+
+## Recursos útiles
+
+-   [Documentación oficial de SolidJS](https://www.solidjs.com/docs)
+-   [Integración de Solid en Astro](https://docs.astro.build/en/guides/integrations-guide/solid/)
+
+Con SolidJS puedes crear islas interactivas eficientes y reactivas dentro de tus proyectos Astro.
