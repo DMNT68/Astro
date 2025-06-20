@@ -2,6 +2,8 @@
 import { Counter } from '@components/Counter';
 import Title from '@components/shared/Title.astro';
 import MainLayout from '@layouts/MainLayout.astro';
+
+const counterValue = 20;
 ---
 
 <MainLayout title="Favoritos">
@@ -16,5 +18,7 @@ import MainLayout from '@layouts/MainLayout.astro';
 	>
 	</div>
 
-	<Counter client:visible />
+	<Counter transition:persist="counter" client:visible initValue={counterValue}>
+		<Title>Counter Islands</Title>
+	</Counter>
 </MainLayout>

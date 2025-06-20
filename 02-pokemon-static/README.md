@@ -698,3 +698,183 @@ import Contador from '../components/Contador.jsx';
 -   [Guía de componentes interactivos](https://docs.astro.build/en/guides/integrations-guide/)
 
 Las Client Directives te permiten controlar de forma granular la interactividad y el rendimiento de tus aplicaciones Astro.
+
+# 8. Props y componentes hacia las islas
+
+Cuando usas la arquitectura de Astro Islands, puedes pasar props (propiedades) desde tus páginas o componentes `.astro` a los componentes interactivos (islas) creados con frameworks como React, Vue, Svelte o SolidJS. Esto te permite enviar datos estáticos o dinámicos generados en el servidor a los componentes que se hidratarán en el cliente.
+
+## ¿Cómo pasar props a una isla?
+
+Simplemente pasa los props como atributos al componente, igual que lo harías normalmente. Astro serializa y envía estos datos al cliente para que el componente los reciba correctamente.
+
+### Ejemplo con React
+
+```astro
+---
+import Contador from '../components/Contador.jsx';
+const valorInicial = 5;
+---
+
+<Contador client:load valorInicial={valorInicial} />
+```
+
+```jsx
+// src/components/Contador.jsx
+import { useState } from 'react';
+
+export default function Contador({ valorInicial }) {
+    const [count, setCount] = useState(valorInicial);
+    return (
+        <button onClick={() => setCount(count + 1)}>
+            Contador: {count}
+        </button>
+    );
+}
+```
+
+### Ejemplo con SolidJS
+
+```astro
+---
+import ContadorSolid from '../components/ContadorSolid';
+const valorInicial = 10;
+---
+
+<ContadorSolid client:load valorInicial={valorInicial} />
+```
+
+```tsx
+// src/components/ContadorSolid.tsx
+import { createSignal } from 'solid-js';
+
+export default function ContadorSolid(props: { valorInicial: number }) {
+    const [count, setCount] = createSignal(props.valorInicial);
+    return (
+        <button onClick={() => setCount(count() + 1)}>
+            Contador: {count()}
+        </button>
+    );
+}
+```
+
+## Consideraciones
+
+- Puedes pasar cualquier tipo de dato serializable (números, strings, arrays, objetos simples).
+- Si necesitas pasar funciones o datos no serializables, deberás gestionarlo dentro del propio componente de la isla.
+- Los props se envían solo en el momento de la hidratación inicial.
+
+## Recursos útiles
+
+- [Documentación oficial: Passing Props to Framework Components](https://docs.astro.build/en/core-concepts/framework-components/#passing-props)
+- [Astro Islands y props](https://docs.astro.build/en/core-concepts/islands/#passing-props-to-islands)
+
+Pasar props a tus islas te permite crear componentes interactivos personalizados y reutilizables, manteniendo la eficiencia y el rendimiento de Astro.
+
+# 9. Uso de `transition:persist` en Astro
+
+Astro ofrece el atributo especial `transition:persist` para mantener elementos específicos en el DOM durante las transiciones de vista (View Transitions). Esto es útil cuando quieres que un elemento (como un reproductor de audio, un modal, o un header animado) no se desmonte ni se reinicie al navegar entre páginas.
+
+## ¿Cómo funciona `transition:persist`?
+
+Cuando agregas `transition:persist` a un elemento, Astro lo preserva entre cambios de ruta, evitando que se destruya y vuelva a crearse. Puedes usarlo solo o con un valor de clave única para identificar el elemento.
+
+### Ejemplo básico
+
+```astro
+<header transition:persist>
+    <h1>Mi sitio Astro</h1>
+</header>
+```
+
+En este ejemplo, el `<header>` permanecerá en el DOM durante las transiciones de página.
+
+### Ejemplo con clave
+
+Si tienes varios elementos que quieres preservar de forma independiente, puedes usar una clave:
+
+```astro
+<div transition:persist="audio-player">
+    <!-- Tu reproductor de audio aquí -->
+</div>
+```
+
+Esto asegura que el elemento con la clave `"audio-player"` se mantenga persistente entre rutas.
+
+## Casos de uso comunes
+
+-   Reproductores de audio o video que no deben reiniciarse al navegar.
+-   Modales o overlays que deben permanecer abiertos durante la transición.
+-   Elementos con animaciones o estado que no quieres perder entre páginas.
+
+## Recursos útiles
+
+-   [Documentación oficial: transition:persist](https://docs.astro.build/en/guides/view-transitions/#persisting-elements-between-pages)
+
+Con `transition:persist`, puedes crear experiencias de usuario más fluidas y mantener el estado de elementos clave durante la navegación en Astro.
+
+# 10. Pasar `children` a componentes de islas
+
+En Astro, puedes pasar contenido hijo (children) a los componentes de islas, igual que lo harías en React, SolidJS, Svelte o Vue. Esto te permite anidar contenido personalizado dentro de tus componentes interactivos.
+
+## Ejemplo con React
+
+```astro
+---
+import Card from '../components/Card.jsx';
+---
+
+<Card client:load>
+    <h2>Pokémon destacado</h2>
+    <p>¡Este es un Pokémon muy especial!</p>
+</Card>
+```
+
+```jsx
+// src/components/Card.jsx
+export default function Card({ children }) {
+    return (
+        <div className="p-4 border rounded">
+            {children}
+        </div>
+    );
+}
+```
+
+## Ejemplo con SolidJS
+
+```astro
+---
+import CardSolid from '../components/CardSolid';
+---
+
+<CardSolid client:load>
+    <h2>Pokémon destacado</h2>
+    <p>¡Este es un Pokémon muy especial!</p>
+</CardSolid>
+```
+
+```tsx
+// src/components/CardSolid.tsx
+import { JSX } from 'solid-js';
+
+export default function CardSolid(props: { children: JSX.Element }) {
+    return (
+        <div class="p-4 border rounded">
+            {props.children}
+        </div>
+    );
+}
+```
+
+## Consideraciones
+
+- El contenido entre las etiquetas del componente se pasa como `children`.
+- Puedes incluir cualquier elemento válido de JSX o HTML.
+- Los children se serializan y envían al cliente junto con el componente.
+
+## Recursos útiles
+
+- [Documentación oficial: Passing Children](https://docs.astro.build/en/core-concepts/framework-components/#children)
+- [Astro Islands y children](https://docs.astro.build/en/core-concepts/islands/#children)
+
+Pasar children a tus islas te permite crear componentes más flexibles y reutilizables en Astro.
