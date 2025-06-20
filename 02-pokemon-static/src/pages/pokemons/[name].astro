@@ -49,10 +49,7 @@ const imageSrc = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprit
 </MainLayout>
 
 <script>
-	interface FavoritePokemon {
-		name: string;
-		id: number;
-	}
+	import type { FavoritePokemon } from '@interfaces/favorite-pokemon';
 
 	document.addEventListener('astro:page-load', () => handlePageLoad());
 
