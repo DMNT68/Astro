@@ -1,0 +1,1 @@
+# SECCIÓN 4: Colecciones e imagenes
