@@ -42,3 +42,84 @@ mdx](https://docs.astro.build/es/guides/integrations-guide/mdx/#why-mdx)
 - [Guía de MDX](https://mdxjs.com/docs/)
 - [Ejemplo de blog con Astro y MDX](https://github.com/withastro/astro/tree/main/examples/blog)
 - [Sintaxis Markdown](https://www.markdownguide.org/basic-syntax/)
+
+# 2. Layouts para markdown
+
+Astro permite definir layouts personalizados para archivos Markdown, facilitando la reutilización de estructuras y estilos en múltiples páginas de contenido.
+
+## ¿Qué es un layout?
+
+Un layout es un componente Astro (`.astro`) que define la estructura base de una página. Los archivos Markdown pueden especificar qué layout usar mediante el frontmatter.
+
+**Ejemplo de layout básico (`src/layouts/BlogLayout.astro`):**
+```astro
+---
+const { title, date } = Astro.props;
+---
+<html>
+    <body>
+        <article>
+            <h1>{title}</h1>
+            <p>{date}</p>
+            <slot />
+        </article>
+    </body>
+</html>
+```
+
+## Usar un layout en un archivo Markdown
+
+Agrega el campo `layout` en el frontmatter del archivo Markdown para asociarlo a un layout:
+
+```markdown
+---
+title: "Mi primer post"
+date: "2024-06-01"
+layout: ../layouts/BlogLayout.astro
+---
+
+Este es el contenido de mi post.
+```
+
+Astro renderizará el contenido Markdown dentro del layout especificado, permitiendo mantener un diseño consistente en todas las páginas.
+
+**Más información:**  
+- [Layouts en Astro](https://docs.astro.build/es/guides/markdown-content/#layouts)
+
+# 3. Astro Glob y Props
+
+Astro proporciona la función `Astro.glob()` para importar múltiples archivos de contenido (como Markdown o MDX) de forma dinámica. Esto es útil para crear listados de posts, portafolios u otras colecciones de páginas.
+
+## ¿Cómo funciona Astro.glob?
+
+`Astro.glob()` recibe una ruta con comodines (wildcards) y retorna un array de módulos que coinciden con el patrón.
+
+**Ejemplo: importar todos los posts Markdown de una carpeta**
+
+```js
+// src/pages/blog.astro
+const posts = await Astro.glob('../posts/*.md');
+```
+
+Cada elemento del array contiene los datos del frontmatter y el contenido renderizado del archivo Markdown.
+
+## Uso típico en una página de listado
+
+```astro
+---
+const posts = await Astro.glob('../posts/*.md');
+---
+
+<ul>
+    {posts.map(post => (
+        <li>
+            <a href={post.url}>{post.frontmatter.title}</a>
+        </li>
+    ))}
+</ul>
+```
+
+Esto permite generar automáticamente un listado de enlaces a todos los posts.
+
+**Más información:**  
+- [Astro.glob() en la documentación oficial](https://docs.astro.build/es/reference/api-reference/#astroglob)

@@ -1,0 +1,32 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import '../styles/global.css';
+import '../styles/blog.css';
+
+interface Props {
+	frontmatter?: {
+		title?: string;
+		[key: string]: any;
+	};
+}
+
+const { frontmatter } = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+
+		<title>{frontmatter?.title}</title>
+		<ClientRouter />
+	</head>
+	<body class="bg-slate-900 text-white">
+		<a href="/">Regresar</a>
+		<main class="mt-10 mb-10 m-auto max-w-3xl">
+			<slot />
+		</main>
+	</body>
+</html>
