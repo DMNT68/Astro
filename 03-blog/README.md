@@ -191,3 +191,53 @@ Esto asegura que todos los archivos cumplen con el esquema definido y facilita e
 **Más información:**  
 - [Astro Content Collections](https://docs.astro.build/es/guides/content-collections/)
 - [Validación de esquemas con Zod](https://zod.dev/)
+
+# 5. Image Component
+
+Astro incluye un componente especial llamado [`<Image />`](https://docs.astro.build/es/guides/images/) que permite optimizar y servir imágenes de manera eficiente. Este componente realiza optimizaciones como redimensionamiento, cambio de formato y lazy loading automáticamente.
+
+## ¿Por qué usar el componente Image?
+
+- Optimiza imágenes en tiempo de compilación.
+- Soporta formatos modernos como WebP y AVIF.
+- Genera atributos `srcset` y `sizes` automáticamente.
+- Mejora el rendimiento y la puntuación en Lighthouse.
+
+## Ejemplo básico de uso
+
+```astro
+---
+import { Image } from 'astro:assets';
+---
+
+<Image
+    src="../assets/ejemplo.jpg"
+    alt="Descripción de la imagen"
+    width={800}
+    height={600}
+/>
+```
+
+- `src`: Ruta de la imagen (puede ser local o remota).
+- `alt`: Texto alternativo para accesibilidad.
+- `width` y `height`: Dimensiones de la imagen (recomendado para evitar CLS).
+
+## Opciones adicionales
+
+Puedes personalizar el formato de salida, calidad y otros parámetros:
+
+```astro
+<Image
+    src="../assets/ejemplo.jpg"
+    alt="Imagen optimizada"
+    width={400}
+    height={300}
+    format="webp"
+    quality={80}
+/>
+```
+
+## Más información
+
+- [Guía oficial de imágenes en Astro](https://docs.astro.build/es/guides/images/)
+- [Referencia del componente Image](https://docs.astro.build/en/reference/api-reference/#image)
