@@ -123,3 +123,71 @@ Esto permite generar automáticamente un listado de enlaces a todos los posts.
 
 **Más información:**  
 - [Astro.glob() en la documentación oficial](https://docs.astro.build/es/reference/api-reference/#astroglob)
+
+# 4. Astro Collections
+
+Astro Collections es una funcionalidad que permite definir y validar esquemas para tus archivos de contenido (como Markdown o MDX) usando Zod u otras librerías de validación. Esto ayuda a mantener la consistencia y seguridad de los datos en tus colecciones de contenido.
+
+## ¿Qué es una colección?
+
+Una colección es un grupo de archivos de contenido que comparten un esquema de frontmatter. Por ejemplo, puedes tener una colección de posts de blog donde cada archivo debe tener un título, fecha y descripción.
+
+## Configuración de una colección
+
+1. **Instala Zod (si no lo tienes):**
+    ```bash
+    pnpm add zod
+    ```
+
+2. **Define la colección en `src/content/config.ts`:**
+    ```js
+    import { defineCollection, z } from 'astro:content';
+
+    const blogCollection = defineCollection({
+      schema: z.object({
+         title: z.string(),
+         date: z.string(),
+         description: z.string().optional(),
+      }),
+    });
+
+    export const collections = {
+      blog: blogCollection,
+    };
+    ```
+
+3. **Crea archivos en la carpeta `src/content/blog/`:**
+    ```markdown
+    ---
+    title: "Mi primer post"
+    date: "2024-06-01"
+    description: "Introducción a Astro Collections"
+    ---
+
+    Este es el contenido de mi post.
+    ```
+
+## Uso de colecciones en tus páginas
+
+Puedes importar y listar los archivos de una colección usando `getCollection`:
+
+```astro
+---
+import { getCollection } from 'astro:content';
+const posts = await getCollection('blog');
+---
+
+<ul>
+  {posts.map(post => (
+     <li>
+        <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+     </li>
+  ))}
+</ul>
+```
+
+Esto asegura que todos los archivos cumplen con el esquema definido y facilita el manejo de grandes volúmenes de contenido.
+
+**Más información:**  
+- [Astro Content Collections](https://docs.astro.build/es/guides/content-collections/)
+- [Validación de esquemas con Zod](https://zod.dev/)
