@@ -1,8 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import { siteConfig } from '../config/site-config';
-import MainLayout from '../layouts/MainLayout.astro';
-import TypedBlogPost from 'src/component/TypedBlogPost.astro';
+import MainLayout from '@layouts/MainLayout.astro';
+import TypedBlogPost from '@components/TypedBlogPost.astro';
 
 const blogPosts = await getCollection('blog');
 ---
