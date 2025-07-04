@@ -241,3 +241,83 @@ Puedes personalizar el formato de salida, calidad y otros parámetros:
 
 - [Guía oficial de imágenes en Astro](https://docs.astro.build/es/guides/images/)
 - [Referencia del componente Image](https://docs.astro.build/en/reference/api-reference/#image)
+
+# 6. Relaciones en colecciones
+
+Las relaciones en colecciones permiten vincular archivos de diferentes colecciones o dentro de la misma colección, facilitando la creación de referencias cruzadas entre posts, autores, categorías, etc.
+
+## ¿Cómo definir relaciones?
+
+Puedes usar el tipo `reference()` en el esquema de tu colección para establecer una relación con otra colección. Esto asegura que el valor del campo coincida con un elemento existente en la colección referenciada.
+
+**Ejemplo: Relacionar posts con autores**
+
+1. **Define las colecciones en `src/content/config.ts`:**
+    ```js
+    import { defineCollection, z, reference } from 'astro:content';
+
+    const authors = defineCollection({
+      schema: z.object({
+        name: z.string(),
+        bio: z.string().optional(),
+      }),
+    });
+
+    const blog = defineCollection({
+      schema: z.object({
+        title: z.string(),
+        date: z.string(),
+        author: reference('authors'), // Relación con la colección 'authors'
+      }),
+    });
+
+    export const collections = {
+      authors,
+      blog,
+    };
+    ```
+
+2. **Crea archivos en `src/content/authors/` y `src/content/blog/`:**
+    - `src/content/authors/juan.md`
+      ```markdown
+      ---
+      name: "Juan Pérez"
+      bio: "Desarrollador y escritor."
+      ---
+      ```
+    - `src/content/blog/mi-post.md`
+      ```markdown
+      ---
+      title: "Post con autor"
+      date: "2024-06-10"
+      author: "juan"
+      ---
+      Este post está relacionado con el autor Juan Pérez.
+      ```
+
+## Uso de relaciones en tus páginas
+
+Cuando obtienes los datos de la colección, el campo de referencia incluye información sobre el documento relacionado, permitiéndote acceder fácilmente a los datos del autor, categoría, etc.
+
+```astro
+---
+import { getCollection } from 'astro:content';
+const posts = await getCollection('blog', { 
+  // Puedes expandir relaciones si lo necesitas
+});
+---
+
+<ul>
+  {posts.map(post => (
+    <li>
+      <strong>{post.data.title}</strong> — Autor: {post.data.author}
+    </li>
+  ))}
+</ul>
+```
+
+Para mostrar información detallada del autor, puedes buscar el documento correspondiente en la colección de autores usando el slug.
+
+**Más información:**  
+- [Relaciones en Content Collections](https://docs.astro.build/es/guides/content-collections/#relaciones-entre-colecciones)
+- [Referencia de esquemas y relaciones](https://docs.astro.build/en/guides/content-collections/#reference)
