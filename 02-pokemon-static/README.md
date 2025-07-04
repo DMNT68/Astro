@@ -1,4 +1,4 @@
-# SECCION 2: Rutas Dinámicas y paginación
+# SECCIÓN 2: Rutas Dinámicas y paginación
 
 <br>
 
@@ -368,7 +368,7 @@ Con `paginate()`, puedes crear fácilmente listados paginados y optimizados para
 <br>
 <br>
 
-# SECCION 3: Dinamismo a nuestro sitio estático
+# SECCIÓN 3: Dinamismo a nuestro sitio estático
 
 <br>
 

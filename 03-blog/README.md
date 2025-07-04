@@ -242,7 +242,8 @@ Puedes personalizar el formato de salida, calidad y otros parámetros:
 - [Guía oficial de imágenes en Astro](https://docs.astro.build/es/guides/images/)
 - [Referencia del componente Image](https://docs.astro.build/en/reference/api-reference/#image)
 
-# 6. Relaciones en colecciones
+# SECCIÓN 5: Relaciones
+# 1. Relaciones en colecciones
 
 Las relaciones en colecciones permiten vincular archivos de diferentes colecciones o dentro de la misma colección, facilitando la creación de referencias cruzadas entre posts, autores, categorías, etc.
 

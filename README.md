@@ -15,4 +15,5 @@ Este repositorio contiene el código y los recursos desarrollados durante el cur
 2. [Rutas Dinámicas y paginación](./02-pokemon-static#seccion-2-rutas-dinámicas-y-paginación)
 3. [Dinamismo a nuestro sitio estático](./02-pokemon-static#seccion-3-dinamismo-a-nuestro-sitio-estático)
 4. [Colecciones e imágenes](./03-blog#seccion-4-colecciones-e-imagenes)
-
+5. [Relaciones de colecciones](./03-blog#seccion-5-relaciones)
+6. [Astro Themes](./04-themes/)
