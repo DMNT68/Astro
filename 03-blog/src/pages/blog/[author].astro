@@ -37,6 +37,7 @@ const { blogPosts, author } = Astro.props;
 					alt={author.name}
 					width={50}
 					height={50}
+					transition:name={`author-${author.name}-image`}
 				/>
 
 				<div class="flex flex-col ml-5">
@@ -53,7 +54,7 @@ const { blogPosts, author } = Astro.props;
 </MainLayout>
 
 <style is:global>
-    @import 'tailwindcss';
+	@import 'tailwindcss';
 	a {
 		@apply text-blue-500 hover:underline;
 	}

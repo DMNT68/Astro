@@ -16,6 +16,7 @@ const { avatar, bio, github, linkedIn, name, subtitle, twitter } = author.data;
 		class="w-32 h-32 rounded-full mx-auto"
 		src={avatar}
 		alt="Profile picture"
+		transition:name={`author-${name}-image`}
 	/>
 	<h2 class="text-center text-2xl font-semibold mt-3 text-gray-900">{name}</h2>
 	<p class="text-center text-gray-600 mt-1">{subtitle}</p>
