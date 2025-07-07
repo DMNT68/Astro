@@ -1,89 +1,86 @@
-![Astro Sphere Lighthouse Score](_astrosphere.jpg)
+![Puntuación de Lighthouse de Astro Sphere](_astrosphere.jpg)
 
-Astro Sphere is a static, minimalist, lightweight, lightning fast portfolio and blog theme based on my personal website.
+Astro Sphere es un tema de portafolio y blog estático, minimalista, ligero y ultrarrápido basado en mi sitio web personal.
 
-It is primarily Astro, Tailwind and Typescript, with a very small amount of SolidJS for stateful components.
+Está construido principalmente con Astro, Tailwind y Typescript, con una pequeña cantidad de SolidJS para componentes con estado.
 
-## 🚀 Deploy your own
+## 🚀 Despliega tu propio sitio
 
-[![Deploy with Vercel](_deploy_vercel.svg)](https://vercel.com/new/clone?repository-url=https://github.com/markhorn-dev/astro-sphere)  [![Deploy with Netlify](_deploy_netlify.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/markhorn-dev/astro-sphere)
+[![Deploy con Vercel](_deploy_vercel.svg)](https://vercel.com/new/clone?repository-url=https://github.com/markhorn-dev/astro-sphere)  [![Deploy con Netlify](_deploy_netlify.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/markhorn-dev/astro-sphere)
 
-## 📋 Features
+## 📋 Características
 
-- ✅ 100/100 Lighthouse performance
+- ✅ 100/100 en rendimiento Lighthouse
 - ✅ Responsive
-- ✅ Accessible
+- ✅ Accesible
 - ✅ SEO-friendly
-- ✅ Typesafe
-- ✅ Minimal style
-- ✅ Light/Dark Theme
-- ✅ Animated UI
-- ✅ Tailwind styling
-- ✅ Auto generated sitemap
-- ✅ Auto generated RSS Feed
-- ✅ Markdown support
-- ✅ MDX Support (components in your markdown)
-- ✅ Searchable content (posts and projects)
-- ✅ Code Blocks - copy to clipboard
+- ✅ Tipado seguro
+- ✅ Estilo minimalista
+- ✅ Tema claro/oscuro
+- ✅ UI animada
+- ✅ Estilos con Tailwind
+- ✅ Sitemap generado automáticamente
+- ✅ RSS Feed generado automáticamente
+- ✅ Soporte para Markdown
+- ✅ Soporte para MDX (componentes en tu markdown)
+- ✅ Contenido buscable (posts y proyectos)
+- ✅ Bloques de código - copiar al portapapeles
 
-## 💯 Lighthouse score
-![Astro Sphere Lighthouse Score](_lighthouse.png)
+## 💯 Puntuación Lighthouse
+![Puntuación de Lighthouse de Astro Sphere](_lighthouse.png)
 
-## 🕊️ Lightweight
-All pages under 100kb (including fonts)
+## 🕊️ Ligero
+Todas las páginas pesan menos de 100kb (incluyendo fuentes)
 
-## ⚡︎ Fast
-Rendered in ~40ms on localhost
+## ⚡︎ Rápido
+Renderizado en ~40ms en localhost
 
-## 📄 Configuration
+## 📄 Configuración
 
-The blog posts on the demo serve as the documentation and configuration.
+Las publicaciones del blog en la demo sirven como documentación y configuración.
 
-## 💻 Commands
+## 💻 Comandos
 
-All commands are run from the root of the project, from a terminal:
+Todos los comandos se ejecutan desde la raíz del proyecto, en una terminal:
 
-Replace pnpm with your package manager of choice. `pnpm`, `pnpm`, `yarn`, `bun`, etc
+Reemplaza pnpm por tu gestor de paquetes preferido. `pnpm`, `npm`, `yarn`, `bun`, etc.
 
-| Command                   | Action                                           |
+| Comando                   | Acción                                           |
 | :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm dev:network`     | Starts dev server on local network               |
-| `pnpm sync`            | Generates TypeScript types for all Astro modules.|
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm preview:network` | Starts preview server on local network           |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-| `pnpm lint`            | Run ESLint                                       |
-| `pnpm lint:fix`        | Auto-fix ESLint issues                           |
+| `pnpm install`             | Instala las dependencias                        |
+| `pnpm dev`             | Inicia el servidor de desarrollo en `localhost:4321` |
+| `pnpm dev:network`     | Inicia el servidor de desarrollo en la red local  |
+| `pnpm sync`            | Genera tipos de TypeScript para todos los módulos Astro |
+| `pnpm build`           | Construye el sitio de producción en `./dist/`     |
+| `pnpm preview`         | Previsualiza tu build localmente antes de desplegar |
+| `pnpm preview:network` | Inicia el servidor de previsualización en la red local |
+| `pnpm astro ...`       | Ejecuta comandos CLI como `astro add`, `astro check` |
+| `pnpm astro -- --help` | Obtén ayuda sobre el CLI de Astro                 |
+| `pnpm lint`            | Ejecuta ESLint                                    |
+| `pnpm lint:fix`        | Corrige automáticamente los problemas de ESLint    |
 
-## 🗺️ Roadmap
+## 🗺️ Hoja de ruta
 
-A few features I plan to implement
-- ⬜ Article Pages - Table of Contents
-- ⬜ Article Pages - Share on social media
+Algunas funciones que planeo implementar:
+- ⬜ Páginas de artículos - Tabla de contenidos
+- ⬜ Páginas de artículos - Compartir en redes sociales
 
-## ✨ Acknowledgement
+## ✨ Agradecimientos
 
-Theme inspired by [Paco Coursey](https://paco.me/), [Lee Robinson](https://leerob.io/) and [Hayden Bleasel](https://www.haydenbleasel.com/)
+Tema inspirado por [Paco Coursey](https://paco.me/), [Lee Robinson](https://leerob.io/) y [Hayden Bleasel](https://www.haydenbleasel.com/)
 
-
-## 🏛️ License
+## 🏛️ Licencia
 
 MIT
 
+# Actualización 1.0.1
 
-# 1.0.1 Update
+Se añadió la posibilidad de ejecutar dev y preview en la red local.
+Se añadió pnpm dev:network
+Se añadió pnpm preview:network
 
-Added ability to run dev and preview on local network.
-added pnpm dev:network
-added pnpm preview:network
+Se aumentó ligeramente la densidad de partículas en modo claro y oscuro.
 
-Added slightly more particle density in both light and dark mode.
+Se añadieron animaciones sutiles de estrellas y meteoros en modo oscuro.
 
-Added subtle dark mode star and meteor animations.
-
-Removed eslint config
-
+Se eliminó la configuración de eslint

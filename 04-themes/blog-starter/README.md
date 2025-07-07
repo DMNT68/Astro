@@ -1,29 +1,29 @@
-# Astro Starter Kit: Blog
+# Kit de Inicio Astro: Blog
 
 ```sh
 pnpm create astro@latest -- --template blog
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/blog)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/blog)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/blog/devcontainer.json)
+[![Abrir en StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/blog)
+[![Abrir con CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/blog)
+[![Abrir en GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/blog/devcontainer.json)
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+> 🧑‍🚀 **¿Astronauta experimentado?** Elimina este archivo. ¡Diviértete!
 
 ![blog](https://github.com/withastro/astro/assets/2244813/ff10799f-a816-4703-b967-c78997e8323d)
 
-Features:
+Características:
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+- ✅ Estilos mínimos (¡personalízalo a tu gusto!)
+- ✅ 100/100 en rendimiento Lighthouse
+- ✅ SEO amigable con URLs canónicas y datos OpenGraph
+- ✅ Soporte para sitemap
+- ✅ Soporte para RSS Feed
+- ✅ Soporte para Markdown y MDX
 
-## 🚀 Project Structure
+## 🚀 Estructura del Proyecto
 
-Inside of your Astro project, you'll see the following folders and files:
+Dentro de tu proyecto Astro, verás las siguientes carpetas y archivos:
 
 ```text
 ├── public/
@@ -38,31 +38,31 @@ Inside of your Astro project, you'll see the following folders and files:
 └── tsconfig.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Astro busca archivos `.astro` o `.md` en el directorio `src/pages/`. Cada página se expone como una ruta basada en su nombre de archivo.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+No hay nada especial sobre `src/components/`, pero ahí es donde nos gusta poner cualquier componente de Astro/React/Vue/Svelte/Preact.
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+El directorio `src/content/` contiene "colecciones" de documentos relacionados en Markdown y MDX. Usa `getCollection()` para obtener publicaciones de `src/content/blog/` y verifica el frontmatter usando un esquema opcional. Consulta la [documentación de Colecciones de Contenido de Astro](https://docs.astro.build/en/guides/content-collections/) para aprender más.
 
-Any static assets, like images, can be placed in the `public/` directory.
+Cualquier recurso estático, como imágenes, puede colocarse en el directorio `public/`.
 
-## 🧞 Commands
+## 🧞 Comandos
 
-All commands are run from the root of the project, from a terminal:
+Todos los comandos se ejecutan desde la raíz del proyecto, en una terminal:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+| Comando                   | Acción                                             |
+| :------------------------ | :------------------------------------------------ |
+| `pnpm install`            | Instala las dependencias                          |
+| `pnpm dev`                | Inicia el servidor de desarrollo en `localhost:4321` |
+| `pnpm build`              | Construye tu sitio de producción en `./dist/`     |
+| `pnpm preview`            | Previsualiza tu build localmente antes de desplegar |
+| `pnpm astro ...`          | Ejecuta comandos CLI como `astro add`, `astro check` |
+| `pnpm astro -- --help`    | Obtén ayuda sobre el CLI de Astro                 |
 
-## 👀 Want to learn more?
+## 👀 ¿Quieres saber más?
 
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Consulta [nuestra documentación](https://docs.astro.build) o únete a nuestro [servidor de Discord](https://astro.build/chat).
 
-## Credit
+## Crédito
 
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+Este tema está basado en el encantador [Bear Blog](https://github.com/HermanMartinus/bearblog/).

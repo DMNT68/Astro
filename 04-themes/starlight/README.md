@@ -1,21 +1,21 @@
-# Starlight Starter Kit: Basics
+# Kit de Inicio Starlight: Conceptos Básicos
 
-[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
+[![Construido con Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
 
 ```
 pnpm create astro@latest -- --template starlight
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/starlight/tree/main/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/starlight/tree/main/examples/basics)
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/withastro/starlight&create_from_path=examples/basics)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fwithastro%2Fstarlight%2Ftree%2Fmain%2Fexamples%2Fbasics&project-name=my-starlight-docs&repository-name=my-starlight-docs)
+[![Abrir en StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/starlight/tree/main/examples/basics)
+[![Abrir con CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/starlight/tree/main/examples/basics)
+[![Desplegar en Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/withastro/starlight&create_from_path=examples/basics)
+[![Desplegar con Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fwithastro%2Fstarlight%2Ftree%2Fmain%2Fexamples%2Fbasics&project-name=my-starlight-docs&repository-name=my-starlight-docs)
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+> 🧑‍🚀 **¿Astronauta experimentado?** Elimina este archivo. ¡Diviértete!
 
-## 🚀 Project Structure
+## 🚀 Estructura del Proyecto
 
-Inside of your Astro + Starlight project, you'll see the following folders and files:
+Dentro de tu proyecto Astro + Starlight, verás las siguientes carpetas y archivos:
 
 ```
 .
@@ -30,25 +30,25 @@ Inside of your Astro + Starlight project, you'll see the following folders and f
 └── tsconfig.json
 ```
 
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
+Starlight busca archivos `.md` o `.mdx` en el directorio `src/content/docs/`. Cada archivo se expone como una ruta basada en su nombre de archivo.
 
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
+Las imágenes pueden agregarse a `src/assets/` y ser insertadas en Markdown con un enlace relativo.
 
-Static assets, like favicons, can be placed in the `public/` directory.
+Los recursos estáticos, como favicons, pueden colocarse en el directorio `public/`.
 
-## 🧞 Commands
+## 🧞 Comandos
 
-All commands are run from the root of the project, from a terminal:
+Todos los comandos se ejecutan desde la raíz del proyecto, en una terminal:
 
-| Command                   | Action                                           |
+| Comando                   | Acción                                           |
 | :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+| `pnpm install`            | Instala las dependencias                        |
+| `pnpm dev`                | Inicia el servidor de desarrollo en `localhost:4321` |
+| `pnpm build`              | Construye tu sitio de producción en `./dist/`   |
+| `pnpm preview`            | Previsualiza tu build localmente antes de desplegar |
+| `pnpm astro ...`          | Ejecuta comandos CLI como `astro add`, `astro check` |
+| `pnpm astro -- --help`    | Obtén ayuda sobre el CLI de Astro               |
 
-## 👀 Want to learn more?
+## 👀 ¿Quieres saber más?
 
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+Consulta la [documentación de Starlight](https://starlight.astro.build/), lee [la documentación de Astro](https://docs.astro.build) o únete al [servidor de Discord de Astro](https://astro.build/chat).
