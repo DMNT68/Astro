@@ -14,4 +14,6 @@ Puedes explorar y descargar temas oficiales y de la comunidad desde el [Astro Th
 npx create-astro@latest --template <nombre-del-tema>
 ```
 
+## Temas populares de Astro
 1. [Blog starter](./blog-starter)
+2. [Astro sphere](./astro-sphere)
