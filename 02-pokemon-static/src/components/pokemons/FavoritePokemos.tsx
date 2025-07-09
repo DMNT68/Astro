@@ -5,8 +5,6 @@ import { FavoritePokemonCard } from './FavoritePokemonCard';
 const getLocalStoragePokemons = (): FavoritePokemon[] =>
     JSON.parse(localStorage.getItem('favoritesPokemon') ?? '[]');
 
-console.log('-->', getLocalStoragePokemons());
-
 export const FavoritePokemons = () => {
     const [pokemos, setPokemos] = createSignal(getLocalStoragePokemons());
 
