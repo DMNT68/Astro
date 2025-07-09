@@ -36,12 +36,12 @@ Para usar MDX en Astro, instala el paquete `@astrojs/mdx` y agrégalo a tu confi
 
 ## Recursos útiles
 
-- [Documentación oficial de Astro sobre Markdown y MDX](https://docs.astro.build/es/guides/markdown-content/)
-- [Documentación @astrojs/
-mdx](https://docs.astro.build/es/guides/integrations-guide/mdx/#why-mdx)
-- [Guía de MDX](https://mdxjs.com/docs/)
-- [Ejemplo de blog con Astro y MDX](https://github.com/withastro/astro/tree/main/examples/blog)
-- [Sintaxis Markdown](https://www.markdownguide.org/basic-syntax/)
+-   [Documentación oficial de Astro sobre Markdown y MDX](https://docs.astro.build/es/guides/markdown-content/)
+-   [Documentación @astrojs/
+    mdx](https://docs.astro.build/es/guides/integrations-guide/mdx/#why-mdx)
+-   [Guía de MDX](https://mdxjs.com/docs/)
+-   [Ejemplo de blog con Astro y MDX](https://github.com/withastro/astro/tree/main/examples/blog)
+-   [Sintaxis Markdown](https://www.markdownguide.org/basic-syntax/)
 
 # 2. Layouts para markdown
 
@@ -52,6 +52,7 @@ Astro permite definir layouts personalizados para archivos Markdown, facilitando
 Un layout es un componente Astro (`.astro`) que define la estructura base de una página. Los archivos Markdown pueden especificar qué layout usar mediante el frontmatter.
 
 **Ejemplo de layout básico (`src/layouts/BlogLayout.astro`):**
+
 ```astro
 ---
 const { title, date } = Astro.props;
@@ -73,8 +74,8 @@ Agrega el campo `layout` en el frontmatter del archivo Markdown para asociarlo a
 
 ```markdown
 ---
-title: "Mi primer post"
-date: "2024-06-01"
+title: 'Mi primer post'
+date: '2024-06-01'
 layout: ../layouts/BlogLayout.astro
 ---
 
@@ -83,8 +84,9 @@ Este es el contenido de mi post.
 
 Astro renderizará el contenido Markdown dentro del layout especificado, permitiendo mantener un diseño consistente en todas las páginas.
 
-**Más información:**  
-- [Layouts en Astro](https://docs.astro.build/es/guides/markdown-content/#layouts)
+**Más información:**
+
+-   [Layouts en Astro](https://docs.astro.build/es/guides/markdown-content/#layouts)
 
 # 3. Astro Glob y Props
 
@@ -121,8 +123,9 @@ const posts = await Astro.glob('../posts/*.md');
 
 Esto permite generar automáticamente un listado de enlaces a todos los posts.
 
-**Más información:**  
-- [Astro.glob() en la documentación oficial](https://docs.astro.build/es/reference/api-reference/#astroglob)
+**Más información:**
+
+-   [Astro.glob() en la documentación oficial](https://docs.astro.build/es/reference/api-reference/#astroglob)
 
 # 4. Astro Collections
 
@@ -135,33 +138,36 @@ Una colección es un grupo de archivos de contenido que comparten un esquema de 
 ## Configuración de una colección
 
 1. **Instala Zod (si no lo tienes):**
+
     ```bash
     pnpm add zod
     ```
 
 2. **Define la colección en `src/content/config.ts`:**
+
     ```js
     import { defineCollection, z } from 'astro:content';
 
     const blogCollection = defineCollection({
-      schema: z.object({
-         title: z.string(),
-         date: z.string(),
-         description: z.string().optional(),
-      }),
+        schema: z.object({
+            title: z.string(),
+            date: z.string(),
+            description: z.string().optional(),
+        }),
     });
 
     export const collections = {
-      blog: blogCollection,
+        blog: blogCollection,
     };
     ```
 
 3. **Crea archivos en la carpeta `src/content/blog/`:**
+
     ```markdown
     ---
-    title: "Mi primer post"
-    date: "2024-06-01"
-    description: "Introducción a Astro Collections"
+    title: 'Mi primer post'
+    date: '2024-06-01'
+    description: 'Introducción a Astro Collections'
     ---
 
     Este es el contenido de mi post.
@@ -188,9 +194,10 @@ const posts = await getCollection('blog');
 
 Esto asegura que todos los archivos cumplen con el esquema definido y facilita el manejo de grandes volúmenes de contenido.
 
-**Más información:**  
-- [Astro Content Collections](https://docs.astro.build/es/guides/content-collections/)
-- [Validación de esquemas con Zod](https://zod.dev/)
+**Más información:**
+
+-   [Astro Content Collections](https://docs.astro.build/es/guides/content-collections/)
+-   [Validación de esquemas con Zod](https://zod.dev/)
 
 # 5. Image Component
 
@@ -198,10 +205,10 @@ Astro incluye un componente especial llamado [`<Image />`](https://docs.astro.bu
 
 ## ¿Por qué usar el componente Image?
 
-- Optimiza imágenes en tiempo de compilación.
-- Soporta formatos modernos como WebP y AVIF.
-- Genera atributos `srcset` y `sizes` automáticamente.
-- Mejora el rendimiento y la puntuación en Lighthouse.
+-   Optimiza imágenes en tiempo de compilación.
+-   Soporta formatos modernos como WebP y AVIF.
+-   Genera atributos `srcset` y `sizes` automáticamente.
+-   Mejora el rendimiento y la puntuación en Lighthouse.
 
 ## Ejemplo básico de uso
 
@@ -218,9 +225,9 @@ import { Image } from 'astro:assets';
 />
 ```
 
-- `src`: Ruta de la imagen (puede ser local o remota).
-- `alt`: Texto alternativo para accesibilidad.
-- `width` y `height`: Dimensiones de la imagen (recomendado para evitar CLS).
+-   `src`: Ruta de la imagen (puede ser local o remota).
+-   `alt`: Texto alternativo para accesibilidad.
+-   `width` y `height`: Dimensiones de la imagen (recomendado para evitar CLS).
 
 ## Opciones adicionales
 
@@ -239,10 +246,11 @@ Puedes personalizar el formato de salida, calidad y otros parámetros:
 
 ## Más información
 
-- [Guía oficial de imágenes en Astro](https://docs.astro.build/es/guides/images/)
-- [Referencia del componente Image](https://docs.astro.build/en/reference/api-reference/#image)
+-   [Guía oficial de imágenes en Astro](https://docs.astro.build/es/guides/images/)
+-   [Referencia del componente Image](https://docs.astro.build/en/reference/api-reference/#image)
 
 # SECCIÓN 5: Relaciones
+
 # 1. Relaciones en colecciones
 
 Las relaciones en colecciones permiten vincular archivos de diferentes colecciones o dentro de la misma colección, facilitando la creación de referencias cruzadas entre posts, autores, categorías, etc.
@@ -254,47 +262,49 @@ Puedes usar el tipo `reference()` en el esquema de tu colección para establecer
 **Ejemplo: Relacionar posts con autores**
 
 1. **Define las colecciones en `src/content/config.ts`:**
+
     ```js
     import { defineCollection, z, reference } from 'astro:content';
 
     const authors = defineCollection({
-      schema: z.object({
-        name: z.string(),
-        bio: z.string().optional(),
-      }),
+        schema: z.object({
+            name: z.string(),
+            bio: z.string().optional(),
+        }),
     });
 
     const blog = defineCollection({
-      schema: z.object({
-        title: z.string(),
-        date: z.string(),
-        author: reference('authors'), // Relación con la colección 'authors'
-      }),
+        schema: z.object({
+            title: z.string(),
+            date: z.string(),
+            author: reference('authors'), // Relación con la colección 'authors'
+        }),
     });
 
     export const collections = {
-      authors,
-      blog,
+        authors,
+        blog,
     };
     ```
 
 2. **Crea archivos en `src/content/authors/` y `src/content/blog/`:**
     - `src/content/authors/juan.md`
-      ```markdown
-      ---
-      name: "Juan Pérez"
-      bio: "Desarrollador y escritor."
-      ---
-      ```
+        ```markdown
+        ---
+        name: 'Juan Pérez'
+        bio: 'Desarrollador y escritor.'
+        ---
+        ```
     - `src/content/blog/mi-post.md`
-      ```markdown
-      ---
-      title: "Post con autor"
-      date: "2024-06-10"
-      author: "juan"
-      ---
-      Este post está relacionado con el autor Juan Pérez.
-      ```
+        ```markdown
+        ---
+        title: 'Post con autor'
+        date: '2024-06-10'
+        author: 'juan'
+        ---
+
+        Este post está relacionado con el autor Juan Pérez.
+        ```
 
 ## Uso de relaciones en tus páginas
 
@@ -303,7 +313,7 @@ Cuando obtienes los datos de la colección, el campo de referencia incluye infor
 ```astro
 ---
 import { getCollection } from 'astro:content';
-const posts = await getCollection('blog', { 
+const posts = await getCollection('blog', {
   // Puedes expandir relaciones si lo necesitas
 });
 ---
@@ -319,6 +329,88 @@ const posts = await getCollection('blog', {
 
 Para mostrar información detallada del autor, puedes buscar el documento correspondiente en la colección de autores usando el slug.
 
-**Más información:**  
-- [Relaciones en Content Collections](https://docs.astro.build/es/guides/content-collections/#relaciones-entre-colecciones)
-- [Referencia de esquemas y relaciones](https://docs.astro.build/en/guides/content-collections/#reference)
+**Más información:**
+
+-   [Relaciones en Content Collections](https://docs.astro.build/es/guides/content-collections/#relaciones-entre-colecciones)
+-   [Referencia de esquemas y relaciones](https://docs.astro.build/en/guides/content-collections/#reference)
+
+# SECCIÓN 7: RSS Feed
+
+# 1. ¿Qué es un RSS Feed?
+
+Un RSS Feed es un archivo en formato XML que permite a los usuarios y aplicaciones suscribirse a las actualizaciones de tu sitio web, como nuevos posts en un blog. Los lectores de RSS pueden mostrar automáticamente el contenido más reciente a los suscriptores.
+
+# 2. Generar un RSS Feed en Astro
+
+Astro facilita la generación de un RSS Feed usando el paquete oficial `@astrojs/rss`.
+
+## Instalación
+
+Ejecuta el siguiente comando para instalar el paquete:
+
+```bash
+pnpm astro add rss
+```
+
+## Ejemplo de uso
+
+Crea un archivo, por ejemplo, `src/pages/rss.xml.js`:
+
+```js
+import rss from '@astrojs/rss';
+import { getCollection } from 'astro:content';
+
+export async function GET() {
+    const posts = await getCollection('blog');
+    return rss({
+        title: 'Mi Blog',
+        description: 'Últimas publicaciones del blog',
+        site: 'https://tusitio.com',
+        items: posts.map((post) => ({
+            title: post.data.title,
+            pubDate: post.data.date,
+            description: post.data.description,
+            link: `/blog/${post.slug}/`,
+        })),
+    });
+}
+```
+
+Esto generará un feed RSS en la ruta `/rss.xml` de tu sitio.
+
+## Más información
+
+-   [Guía oficial de RSS en Astro](https://docs.astro.build/es/guides/rss/)
+-   [Referencia del paquete @astrojs/rss](https://docs.astro.build/en/guides/rss/)
+
+# 3. HTTP Get - Endpoints
+
+Un endpoint en Astro es un archivo que exporta una función especial (`GET`, `POST`, etc.) y permite manejar peticiones HTTP personalizadas, devolviendo datos en formatos como JSON, XML, texto plano, etc. Los endpoints son útiles para crear APIs, feeds, o cualquier respuesta dinámica fuera del flujo de páginas tradicionales.
+
+## ¿Cómo crear un endpoint?
+
+Crea un archivo en la carpeta `src/pages` con una extensión como `.js`, `.ts`, `.mjs`, etc. El nombre del archivo define la ruta del endpoint.
+
+**Ejemplo básico de endpoint JSON:**
+
+```js
+// src/pages/api/hola.js
+export function GET() {
+    return new Response(JSON.stringify({ mensaje: '¡Hola desde un endpoint de Astro!' }), {
+        headers: { 'Content-Type': 'application/json' },
+    });
+}
+```
+
+Al acceder a `/api/hola`, recibirás la respuesta JSON.
+
+## Características de los endpoints en Astro
+
+-   Puedes usar cualquier método HTTP (`GET`, `POST`, etc.) exportando la función correspondiente.
+-   Permiten devolver cualquier tipo de contenido: JSON, XML, HTML, texto, archivos, etc.
+-   Son útiles para integrar funcionalidades como formularios, feeds, autenticación, etc.
+
+**Más información:**
+
+-   [Endpoints en Astro](https://docs.astro.build/es/core-concepts/endpoints/)
+-   [Referencia de endpoints](https://docs.astro.build/en/reference/api-reference/#endpoints)

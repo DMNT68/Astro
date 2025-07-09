@@ -17,3 +17,4 @@ Este repositorio contiene el código y los recursos desarrollados durante el cur
 4. [Colecciones e imágenes](./03-blog#sección-4-colecciones-e-imagenes)
 5. [Relaciones de colecciones](./03-blog#sección-5-relaciones)
 6. [Astro Themes](./04-themes/)
+7. [RSS Feed](./03-blog#sección-7-rss-feed)
